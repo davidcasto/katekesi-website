@@ -1,0 +1,930 @@
+
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    padding-top: 70px; /* Add padding to the top of the body,  increased from 60 to 70*/
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+/* For the header container */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #003366;
+  color: white;
+  padding: 10px 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 10px;
+}
+
+
+/* Menu toggle default hidden */
+.menu-toggle {
+  display: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+  padding-left: 20px; /* Optional left spacing */
+  margin-left: auto; /* Push to far right */
+}
+
+.menu-toggle i {
+  font-size: 24px;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Show the toggle on mobile */
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #003366;
+        position: absolute;
+        top: 70px; /* height of header */
+        right: 0;
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .dropdown-content {
+        position: static;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: none;
+    }
+
+    .dropdown.active .dropdown-content {
+        display: block;
+    }
+}
+
+/* Spacer to avoid content hidden behind fixed header */
+.header-spacer {
+    height: 70px;
+}
+
+@media (max-width: 768px) {
+    .header-spacer {
+        height: 90px;
+    }
+}
+      header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px; /* Keep your max width */
+            margin: 0 auto; /* Keep your horizontal centering */
+            padding: 0 20px; /* Add horizontal padding inside the container */
+        }
+
+header h1 {
+    margin: 0;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+main section {
+    padding: 50px 0;
+    text-align: left; /* Align text within sections to the left for better readability */
+}
+
+main h2 {
+    color: #003366;
+    margin-bottom: 20px;
+    text-align: center; /* Center the section titles */
+}
+
+
+
+footer {
+    background-color: #003366;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed; /* Stick footer to the bottom */
+    bottom: 0;
+    width: 100%;
+}
+
+/* Style for links */
+a {
+    color: #0078d7; /* Blue */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
+
+#courseDetails {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#courseList {
+    list-style: none;
+    padding: 0;
+}
+
+#courseList li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    color:#003366;
+}
+
+#courseList li:last-child {
+    border-bottom: none;
+}
+
+#courseList li:hover {
+    text-decoration: underline;
+}
+
+.course-description {
+    margin-bottom: 15px;
+    font-style: italic;
+    color: #555;
+}
+
+/* ... existing CSS ... */
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    left: 0;
+}
+
+.dropdown-content li {
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.dropdown-content li:last-child {
+    border-bottom: none;
+}
+
+.dropdown-content li:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown > a {
+    display: block; /* Make the 'Courses' link clickable for the dropdown */
+}
+
+#courseDetails {
+    margin-top: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#courseDetails.hidden {
+    display: none;
+}
+
+/* ... other existing CSS ... */
+
+/* ... existing CSS ... */
+
+#courseDetails {
+    margin-top: 30px;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff; /* White background for better contrast */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+#courseDetails h3 {
+    color: #003366;
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #003366; /* Underline for the title */
+    padding-bottom: 10px;
+}
+
+#courseDetails .course-description {
+    margin-bottom: 25px;
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+}
+
+#courseDetails h4 {
+    color:#003366;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#courseDetails ul {
+    list-style: disc; /* Use bullets for lists */
+    padding-left: 25px;
+    margin-bottom: 15px;
+}
+
+#courseDetails ul li {
+    line-height: 1.6;
+    margin-bottom: 8px;
+}
+
+#courseDetails strong {
+    font-weight: bold;
+    color: #333; /* Make strong text stand out */
+}
+
+#courseDetails p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+#courseDetails a {
+    color: #003366; /* More vibrant link color */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#courseDetails a:hover {
+    text-decoration: underline;
+}
+
+/* Style for modules list */
+#courseDetails ul li strong {
+    display: block; /* Make module titles block-level */
+    margin-bottom: 5px;
+}
+
+/* Subtle background for key info paragraphs */
+#courseDetails p strong + span,
+#courseDetails p strong + a {
+    display: block; /* Ensure content after strong is on a new line */
+    margin-top: 5px;
+}
+
+/* Add a bit more spacing around the details */
+#courseDetails > div {
+    padding: 15px;
+}
+
+
+/* ... existing CSS ... */
+
+.hero-section {
+  position: relative;
+  min-height: 50vh;  /* or set height as you want */
+  color: white;
+  text-align: center;
+  padding: 75px 20px;  /* add some side padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center top;
+  transition: background-image 1s ease-in-out;
+}
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);  /* dark overlay for readability */
+  width: 100%;
+  padding: 2rem 1rem;
+}
+
+.hero-content {
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero-content .lead {
+    font-size: 1.5em;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.hero-content .button {
+    display: inline-block;
+    background-color: #007bff; /* Example button color */
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.hero-content .button:hover {
+    background-color: #0056b3;
+}
+
+/* ... other existing CSS ... */
+
+/* ... other CSS ... */
+
+#about {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f0f8ff, #e0f2f7); /* Light, inviting gradient */
+}
+
+.about-content {
+    max-width: 900px;
+    margin: 40px auto; /* More vertical spacing */
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.about-content h2 {
+    color: #003366;
+    font-size: 3em;
+    margin-bottom: 40px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #003366; /* More prominent border */
+}
+
+.about-content h2::before {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #003366; /* Accent color */
+}
+
+.about-content h3 {
+    color: #003366;
+    font-size: 2em;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.about-content .lead {
+    font-size: 1.3em;
+    color: #444;
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+.about-content p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 25px;
+    line-height: 1.7;
+}
+
+.about-content ul {
+    list-style: none; /* Custom bullet points */
+    padding-left: 0;
+    margin-bottom: 30px;
+}
+
+.about-content ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.about-content ul li::before {
+    content: '\2022'; /* Unicode bullet */
+    position: absolute;
+    left: 0;
+    top: 0.2em;
+    color: #007bff; /* Accent color for bullets */
+    font-size: 1.5em;
+}
+
+.about-content strong {
+    font-weight: 600; /* Slightly bolder */
+    color: #333;
+}
+
+/* Add some visual separation for leadership info */
+.about-content h3:nth-child(7), /* Style the "Uongozi wa Chuo" heading */
+.about-content p:nth-child(8) { /* Style the paragraph about the leader */
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-left: 5px solid #003366; /* Accent bar */
+    border-radius: 5px;
+}
+
+/* Style for the vision and goals sections */
+.about-content h3:nth-child(9), /* Dira Yetu */
+.about-content h3:nth-child(11) /* Malengo Yetu */ {
+    color:#003366; /* Accent color for these subheadings */
+    margin-top: 40px;
+}
+
+.about-content .karibu {
+    font-size: 1.2em;
+    color: #003366;
+    margin-top: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ... other CSS ... */
+
+#resources {
+    padding: 80px 0;
+    background-color: #f0f8ff; /* Light blue background */
+}
+
+#resources h2 {
+    color: #003366;
+    font-size: 3em;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.resource-category {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.resource-category img {
+    max-width: 80px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.resource-category h3 {
+    color: #005580;
+    font-size: 1.8em;
+    margin-bottom: 15px;
+}
+
+.resource-category ul {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+}
+
+.resource-category ul li {
+    margin-bottom: 10px;
+}
+
+.resource-category ul li a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.resource-category ul li a:hover {
+    text-decoration: underline;
+}
+
+.resource-category a.view-all {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.resource-category a.view-all:hover {
+    background-color: #0056b3;
+}
+
+/* ... other CSS ... */
+
+
+/* ... other CSS ... */
+
+#contact {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f8f8, #e8e8e8); /* Light gray gradient */
+}
+
+#contact h2 {
+    color: #003366;
+    font-size: 3em;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.contact-wrapper {
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px;
+}
+
+.contact-info h3,
+.contact-form h3 {
+    color: #005580;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.contact-info p i {
+    margin-right: 10px;
+    color: #007bff; /* Accent color for icons */
+    font-size: 1.2em;
+    width: 20px; /* Ensure consistent icon width */
+    text-align: center;
+}
+
+.contact-info a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.social-media {
+    margin-top: 30px;
+}
+
+.social-media a {
+    display: inline-block;
+    margin-right: 15px;
+    color: #333;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: #007bff;
+}
+
+.contact-form {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.form-group textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+.contact-form .button {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form .button:hover {
+    background-color: #0056b3;
+}
+
+/* ... other CSS ... */
+
+/* ... other CSS ... */
+
+.student-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjust min width as needed */
+    grid-auto-rows: minmax(120px, auto); /* Ensure rows adjust to content */
+    gap: 10px; /* Adjust gap between images */
+    margin-bottom: 30px;
+}
+
+.student-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and cover the container */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out;
+}
+
+.student-images img:hover {
+    transform: scale(1.03); /* Subtle zoom on hover */
+}
+
+/* Optional: Style for larger screens to have more columns */
+@media (min-width: 768px) {
+    .student-images {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 15px;
+    }
+}
+
+@media (min-width: 992px) {
+    .student-images {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* For tablets (typically 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .container {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 2.5em;
+    }
+
+    /* Adjust other elements as needed for tablets */
+}
+
+/* For smaller smartphones (typically up to 576px) */
+@media (max-width: 576px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 2em;
+    }
+
+    .hero-content {
+        padding: 30px 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-content .lead {
+        font-size: 1.2em;
+    }
+
+    .contact-wrapper {
+        grid-template-columns: 1fr; /* Stack columns on small screens */
+        padding: 20px;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 20px 0;
+    }
+
+    /* Adjust other elements for small screens */
+}
+
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    /* You are missing styles here to hide the menu by default
+        and to display it when the 'open' class is added. */
+}
+
+@media (max-width: 768px) {
+    header nav ul {
+        display: none; /* This hides the menu by default on mobile */
+        flex-direction: column; /* Stack the links vertically on mobile */
+        width: 100%; /* Make the menu take full width */
+        background-color: #003366; /* Optional: Add a background color for the mobile menu */
+        padding: 10px 0; /* Optional: Add some padding to the menu */
+        position: absolute; /* Position it absolutely so it can slide down */
+        top: 100%; /* Position it below the header */
+        left: 0;
+        z-index: 10; /* Ensure it's above other content */
+    }
+
+    header nav ul.open {
+        display: block; /* This shows the menu when the 'open' class is present */
+    }
+
+    header nav ul li {
+        margin-left: 0; /* Remove left margin for stacked items */
+        padding: 10px 20px; /* Add padding to each link */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Optional: Separator lines */
+    }
+
+    header nav ul li:last-child {
+        border-bottom: none; /* Remove the bottom border from the last item */
+    }
+}
+
+
+.courses {
+    background-color: #f4f4f4;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.courses h2 {
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.courses p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.resources {
+    background-color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.resources h2 {
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.resources p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.leaders-section {
+  background-color: #f9f9f9;
+  padding: 60px 20px 80px;
+  text-align: center;
+}
+
+.leaders-container {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.leader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  text-align: center;
+}
+
+.leader-image {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  border: 4px solid #003366;
+  margin-bottom: 15px;
+}
+
+.leader-name {
+  font-weight: 700;
+  color: #003366;
+  font-size: 1.3rem;
+  margin: 0 0 5px;
+}
+
+.leader-role {
+  font-weight: 600;
+  color: #0055a5;
+  font-size: 1.1rem;
+  margin: 0 0 10px;
+}
+
+.leader-description {
+  font-weight: 400;
+  color: #444;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0 10px;
+  line-height: 1.4;
+}

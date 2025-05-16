@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Games</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .quiz-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .quiz-container h2 {
+            text-align: center;
+            color: #007bff;
+        }
+        .quiz-container label {
+            font-size: 1.2em;
+        }
+        .quiz-container button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            color: white;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .quiz-container button:hover {
+            background-color: #218838;
+        }
+        .result {
+            text-align: center;
+            font-size: 1.3em;
+            margin-top: 20px;
+        }
+        .question {
+            display: none;
+        }
+        .question.active {
+            display: block;
+        }
+        .failed-question {
+            color: red;
+            font-weight: bold;
+        }
+        .correct-question {
+            color: green;
+            font-weight: bold;
+        }
+        .question-summary {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .question-summary.correct {
+            background-color: #d4edda;
+        }
+        .question-summary.incorrect {
+            background-color: #f8d7da;
+        }
+        .result a {
+            margin-top: 20px;
+            display: inline-block;
+            font-size: 1.2em;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .result a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Bible Games</h1>
+        <p>Test your Bible knowledge with this fun trivia quiz!</p>
+    </div>
+
+    <div class="quiz-container">
+        <h2>Bible Trivia Quiz</h2>
+        <form id="quizForm">
+            <!-- Question 1 -->
+            <div class="question active" id="question1">
+                <label>1. Who was the first man created by God?</label><br>
+                <input type="radio" name="q1" value="correct"> Adam<br>
+                <input type="radio" name="q1" value="wrong"> Noah<br>
+                <input type="radio" name="q1" value="wrong"> Moses<br>
+                <input type="radio" name="q1" value="wrong"> Abraham<br><br>
+                <button type="button" onclick="nextQuestion(1)">Next</button>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question" id="question2">
+                <label>2. What was the name of Noah’s Ark?</label><br>
+                <input type="radio" name="q2" value="wrong"> The Ark of the Covenant<br>
+                <input type="radio" name="q2" value="correct"> Noah’s Ark<br>
+                <input type="radio" name="q2" value="wrong"> The Golden Ark<br>
+                <input type="radio" name="q2" value="wrong"> The Ark of Salvation<br><br>
+                <button type="button" onclick="nextQuestion(2)">Next</button>
+            </div>
+
+            <!-- Question 3 (Fill in the Gap) -->
+            <div class="question" id="question3">
+                <label>3. Fill in the blank: ________ was swallowed by a big fish in the Bible.</label><br>
+                <input type="text" id="q3_answer" placeholder="Your answer"><br><br>
+                <button type="button" onclick="nextQuestion(3)">Next</button>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question" id="question4">
+                <label>4. Who was swallowed by a great fish or whale in the Bible?</label><br>
+                <input type="radio" name="q4" value="wrong"> Moses<br>
+                <input type="radio" name="q4" value="correct"> Jonah<br>
+                <input type="radio" name="q4" value="wrong"> Daniel<br>
+                <input type="radio" name="q4" value="wrong"> Paul<br><br>
+                <button type="button" onclick="nextQuestion(4)">Next</button>
+            </div>
+
+            <!-- Question 5 -->
+            <div class="question" id="question5">
+                <label>5. What is the shortest verse in the Bible?</label><br>
+                <input type="radio" name="q5" value="correct"> "Jesus wept."<br>
+                <input type="radio" name="q5" value="wrong"> "I am the way."<br>
+                <input type="radio" name="q5" value="wrong"> "God is love."<br>
+                <input type="radio" name="q5" value="wrong"> "Be still."<br><br>
+                <button type="button" onclick="nextQuestion(5)">Next</button>
+            </div>
+
+            <!-- Question 6 -->
+            <div class="question" id="question6">
+                <label>6. Who betrayed Jesus?</label><br>
+                <input type="radio" name="q6" value="wrong"> Peter<br>
+                <input type="radio" name="q6" value="correct"> Judas<br>
+                <input type="radio" name="q6" value="wrong"> John<br>
+                <input type="radio" name="q6" value="wrong"> Thomas<br><br>
+                <button type="button" onclick="nextQuestion(6)">Next</button>
+            </div>
+
+            <!-- Question 7 -->
+            <div class="question" id="question7">
+                <label>7. What miracle did Jesus perform at a wedding in Cana?</label><br>
+                <input type="radio" name="q7" value="correct"> Turned water into wine<br>
+                <input type="radio" name="q7" value="wrong"> Healed a blind man<br>
+                <input type="radio" name="q7" value="wrong"> Raised Lazarus from the dead<br>
+                <input type="radio" name="q7" value="wrong"> Walked on water<br><br>
+                <button type="button" onclick="nextQuestion(7)">Next</button>
+            </div>
+
+            <!-- Question 8 -->
+            <div class="question" id="question8">
+                <label>8. Who was the first king of Israel?</label><br>
+                <input type="radio" name="q8" value="correct"> Saul<br>
+                <input type="radio" name="q8" value="wrong"> David<br>
+                <input type="radio" name="q8" value="wrong"> Solomon<br>
+                <input type="radio" name="q8" value="wrong"> Hezekiah<br><br>
+                <button type="button" onclick="nextQuestion(8)">Next</button>
+            </div>
+
+            <!-- Question 9 -->
+            <div class="question" id="question9">
+                <label>9. What animal spoke to Balaam in the Bible?</label><br>
+                <input type="radio" name="q9" value="correct"> A donkey<br>
+                <input type="radio" name="q9" value="wrong"> A lion<br>
+                <input type="radio" name="q9" value="wrong"> A bird<br>
+                <input type="radio" name="q9" value="wrong"> A snake<br><br>
+                <button type="button" onclick="nextQuestion(9)">Next</button>
+            </div>
+
+            <!-- Question 10 -->
+            <div class="question" id="question10">
+                <label>10. How many days and nights did it rain during the flood in Noah’s time?</label><br>
+                <input type="radio" name="q10" value="correct"> 40 days and nights<br>
+                <input type="radio" name="q10" value="wrong"> 7 days and nights<br>
+                <input type="radio" name="q10" value="wrong"> 30 days and nights<br>
+                <input type="radio" name="q10" value="wrong"> 70 days and nights<br><br>
+                <button type="button" onclick="nextQuestion(10)">Next</button>
+            </div>
+
+            <!-- Results -->
+            <div class="result" id="quizResult"></div>
+
+            <button type="button" id="finishButton" onclick="finishQuiz()" style="display:none;">Finish Quiz</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    let currentQuestion = 1;
+    let correctAnswers = 0;
+    let wrongAnswers = [];
+    let explanations = {
+        q1: { correct: 'Adam', explanation: 'Adam was the first human created by God, according to the Bible.' },
+        q2: { correct: 'Noah’s Ark', explanation: 'Noah’s Ark was the large boat Noah built to survive the great flood.' },
+        q3: { correct: 'Jonah', explanation: 'Jonah was swallowed by a big fish after trying to escape God\'s command.' },
+        q4: { correct: 'Jonah', explanation: 'Jonah was inside the belly of the fish for three days and nights.' },
+        q5: { correct: '"Jesus wept."', explanation: 'This is the shortest verse in the Bible found in John 11:35.' },
+        q6: { correct: 'Judas', explanation: 'Judas Iscariot betrayed Jesus for 30 pieces of silver.' },
+        q7: { correct: 'Turned water into wine', explanation: 'This miracle occurred at a wedding in Cana.' },
+        q8: { correct: 'Saul', explanation: 'Saul was the first king appointed over Israel.' },
+        q9: { correct: 'A donkey', explanation: 'God opened the mouth of Balaam’s donkey to speak.' },
+        q10: { correct: '40 days and nights', explanation: 'It rained for 40 days and nights during the flood in Noah’s time.' }
+        };
+
+        function nextQuestion(questionNumber) {
+    const currentDiv = document.getElementById(`question${questionNumber}`);
+    const nextDiv = document.getElementById(`question${questionNumber + 1}`);
+
+    if (questionNumber === 3) {
+        const answer = document.getElementById("q3_answer").value.trim().toLowerCase();
+        if (answer === "jonah") {
+            correctAnswers++;
+        } else {
+            wrongAnswers.push({ q: "q3", answer: answer });
+        }
+    } else {
+        const radios = document.getElementsByName(`q${questionNumber}`);
+        let answered = false;
+        radios.forEach(radio => {
+            if (radio.checked) {
+                answered = true;
+                if (radio.value === "correct") {
+                    correctAnswers++;
+                } else {
+                    wrongAnswers.push({ q: `q${questionNumber}`, answer: radio.nextSibling.textContent.trim() });
+                }
+            }
+        });
+        if (!answered) {
+            alert("Please select an answer before continuing.");
+            return;
+        }
+    }
+
+    currentDiv.classList.remove("active");
+
+    if (nextDiv) {
+        nextDiv.classList.add("active");
+    } else {
+        document.getElementById("finishButton").style.display = "block";
+    }
+}
+function finishQuiz() {
+    let resultText = `<h3>Your Score: ${correctAnswers} out of 10</h3>`;
+
+    if (wrongAnswers.length > 0) {
+        resultText += `<h4>Review:</h4>`;
+        wrongAnswers.forEach(item => {
+            resultText += `
+                <div class="question-summary incorrect">
+                    <p><strong>Question:</strong> ${explanations[item.q].explanation}</p>
+                    <p><strong>Your Answer:</strong> ${item.answer}</p>
+                    <p><strong>Correct Answer:</strong> ${explanations[item.q].correct}</p>
+                </div>
+            `;
+        });
+    } else {
+        resultText += `<p>Congratulations! You got all questions correct! 🎉</p>`;
+    }
+
+    resultText += `<p>You will be redirected to the main page in 10 seconds...</p>`;
+
+    document.getElementById("quizResult").innerHTML = resultText;
+
+    // Redirect to main page after 10 seconds
+    setTimeout(() => {
+        window.location.href = "index.html"; // Update if your main page is different
+    }, 10000);
+}
+
+</script>
+</body>
+</html>

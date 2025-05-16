@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Toggle Jump Animation</title>
+<style>
+  .student-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-auto-rows: minmax(120px, auto);
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .student-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .student-images img:hover {
+    transform: scale(1.03);
+  }
+
+  @media (min-width: 768px) {
+    .student-images {
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .student-images {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+  }
+
+  /* Jump animation */
+  @keyframes jump {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .jump {
+    animation: jump 0.5s ease-in-out infinite;
+  }
+
+  /* Style the button */
+  #toggleJump {
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<button id="toggleJump">Start Jump Animation</button>
+
+<div class="student-images">
+  <img src="https://via.placeholder.com/150" alt="Student 1" />
+  <img src="https://via.placeholder.com/150" alt="Student 2" />
+  <img src="https://via.placeholder.com/150" alt="Student 3" />
+  <img src="https://via.placeholder.com/150" alt="Student 4" />
+</div>
+
+<script>
+  const toggleBtn = document.getElementById('toggleJump');
+  const images = document.querySelectorAll('.student-images img');
+
+  toggleBtn.addEventListener('click', () => {
+    images.forEach(img => img.classList.toggle('jump'));
+
+    if (images[0].classList.contains('jump')) {
+      toggleBtn.textContent = 'Stop Jump Animation';
+    } else {
+      toggleBtn.textContent = 'Start Jump Animation';
+    }
+  });
+</script>
+
+</body>
+</html>

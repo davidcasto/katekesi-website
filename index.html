@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chuo Cha Mt. Fransisko Xsavier UDOM</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- http://127.0.0.1:5500/.-->
+</head>
+<body>
+ <header>
+  <div class="container">
+    <div class="logo-title" style="display: flex; align-items: center;">
+      <img src="image/christianism-cross.png" alt="Nembo ya Chuo Kikuu cha Katekesi" style="max-height: 50px; margin-right: 10px;">
+      <h1>Chuo Cha katekesi Mt. Fransisko Ksavier</h1>
+    </div>
+    <!-- Menu toggle icon -->
+    <div class="menu-toggle">
+      <i class="fas fa-bars"></i>
+    </div>
+  
+
+
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#home">Nyumbani</a></li>
+        <li class="dropdown">
+          <a href="#">Kozi</a>
+          <ul class="dropdown-content">
+            <li data-course="biblia">Biblia</li>
+            <li data-course="elimu-jamii">Elimu Jamii</li>
+            <li data-course="historia-ya-kanisa">Historia ya Kanisa</li>
+            <li data-course="katekesi">Katekesi</li>
+            <li data-course="liturujia">Liturujia</li>
+            <li data-course="maadili">Maadili</li>
+            <li data-course="mafundisho-ya-imani">Mafundisho ya Imani</li>
+            <li data-course="maisha-ya-kiroho">Maisha ya Kiroho</li>
+            <li data-course="methodology">Methodology</li>
+            <li data-course="saikologia">Saikologia</li>
+            <li data-course="uchungaji">Uchungaji</li>
+          </ul>
+        </li>
+        <li><a href="#resources">Rasilimali</a></li>
+        <li><a href="#about">Kuhusu</a></li>
+        <li><a href="#contact">Wasiliana</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <main>
+    <section id="home" class="hero-section">
+      <div class="hero-overlay">
+        <div class="container hero-content">
+          <h1>Karibu Chuo cha Katekesi  cha Mt. Fransisko ksavier UDOM </h1>
+          <p class="lead">Tunatoa mafunzo bora kwa walimu wa elimu ya dini Katoliki, kuwajenga viongozi wa imani kwa jamii yetu.</p>
+        </div>
+      </div>
+    </section>
+    <script>
+  const heroSection = document.querySelector('.hero-section');
+  const images = [
+    "url('image/kusoma pamoja (1).jpeg')",
+    "url('image/wakongwe.jpeg')",
+    "url('image/kusoma pamoja (3).jpeg')",
+    "url('image/kusoma pamoja (4).jpeg')",
+    "url('image/kusoma pamoja (5).jpeg')",
+     "url('image/kusoma pamoja (14).jpeg')",
+    "url('image/kusoma pamoja (17).jpeg')"
+  ];
+
+  let current = 0;
+
+  function changeBackground() {
+    heroSection.style.backgroundImage = images[current];
+    current = (current + 1) % images.length;
+  }
+
+  // Initial background
+  changeBackground();
+
+  // Change every 4 seconds
+  setInterval(changeBackground, 4000);
+</script>
+
+
+    <section id="courseDetails" class="container hidden">
+      <h2>Maelezo ya Kozi</h2>
+      <div id="courseDetailsContent"></div>
+    </section>
+
+    <section id="resources" class="container">
+    <h2>Rasilimali</h2>
+
+    <div class="resources-grid">
+      <div class="resource-category">
+    <img src="image/download-file.png" alt="Download Icon">
+    <h3>Vifaa Vinavyoweza Kupakuliwa</h3>
+    <ul>
+    <li>
+    Kurasa za Mazoezi:
+    <select onchange="redirectToActivity(this.value)">
+        <option value="">-- Tafadhali chagua --</option>
+        <option value="bible-games.html">Michezo ya Biblia</option>
+    </select>
+</li>
+
+<script>
+    function redirectToActivity(page) {
+        if (page) {
+            // Redirect to the Bible Games page
+            window.location.href = page;
+        }
+    }
+</script>
+
+
+        <li>
+            Rasilimali za Sala:
+            <select onchange="downloadPrayer(this.value)">
+                <option value="">-- Tafadhali chagua</option>
+                <option value="https://www.iubilaeum2025.va/content/dam/iubilaeum2025/foto-sezioni/2024-anno-della-preghiera/insegnaci-a-pregare/pdf/nuovi/TEACH-US-TO-PRAY---Living-the-Year-of-Prayer.pdf">Vatican - Sala</option>
+                <option value="https://www.kofc.org/un/en/resources/cis/devotionals/basicprayers.pdf">Basic Catholic Prayers (Knights of Columbus)</option>
+                <option value="https://diocesefwsb.org/wp-content/uploads/2020/12/Prayer-Time-A-Collection-of-Catholic-Prayers.pdf">Prayer Time Collection</option>
+                <option value="https://www.dor.org/wp-content/uploads/Traditional-Catholic-Prayers.pdf">Traditional Catholic Prayers</option>
+                <option value="https://archive.org/download/AManualOfPrayersCatholicLaity/AManualOfPrayersCatholicLaity.pdf">Manual of Prayers (Archive.org)</option>
+            </select>
+        </li>
+    </ul>
+    
+</div>
+
+<script>
+    function downloadActivity(url) {
+        if (url) {
+            window.open(url, '_blank');
+        }
+    }
+
+    function downloadPrayer(url) {
+        if (url) {
+            window.open(url, '_blank');
+        }
+    }
+</script>
+
+        <div class="resource-category">
+            <img src="image/external-link.png" alt="Link Icon">
+            <h3>Viungo vya Nje</h3>
+            <ul>
+    <li><a href="https://www.instagram.com/udomparish_official/?hl=en" target="_blank">Tovuti ya Jimbo Katoliki la Dodoma </a></li>
+    
+    <li><a href="https://www.vatican.va" target="_blank">Tovuti ya Vatican </a></li>
+    
+</ul>
+
+        </div>
+
+        <div class="resource-category">
+            <img src="image/multimedia.png" alt="Multimedia Icon">
+            <h3>Rasilimali za Multimedia</h3>
+            <ul>
+    <li>
+        <a href="https://www.youtube.com/live/GaBPlGOn-b4?si=46Rvy9ulNtkSTN1_" target="_blank">
+            Video (baba mtakatifu –)
+        </a>
+    </li>
+    <li>
+        <a href="https://www.catholic.com/audio" target="_blank">
+            Sauti
+        </a>
+    </li>
+</ul>
+        </div>
+
+       <div class="resource-category">
+  <img src="image/teacher.png" alt="Teacher Icon">
+  <h3>Download Exam Papers</h3>
+
+  <label for="year-select">Select Year:</label>
+  <select id="year-select" onchange="showPapers()">
+    <option value="">--Choose a Year--</option>
+    <option value="2022-2023">2022-2023</option>
+    <option value="2023-2024">2023-2024</option>
+  </select>
+
+  <ul id="papers-list">
+    <!-- Papers for the selected year will appear here -->
+  </ul>
+</div>
+
+  <script>
+  // Define your papers for each year
+  const papers = {
+    "2022-2023": [
+      {name: "Exam Paper 1", file: "image/22-23mitihani.pdf"},
+     
+    ],
+    "2023-2024": [
+      {name: "Exam Paper 1", file: "image/23-24mitihani.pdf"},
+      
+    ]
+  };
+
+  function showPapers() {
+    const year = document.getElementById('year-select').value;
+    const list = document.getElementById('papers-list');
+    list.innerHTML = ""; // Clear current list
+
+    if (year && papers[year]) {
+      papers[year].forEach(paper => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = paper.file;
+        a.textContent = paper.name;
+        a.setAttribute('download', '');
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+    }
+  }
+</script>
+
+
+
+
+
+
+          <div class="resource-category">
+        <img src="image/dictionary.png" alt="Glossary Icon">
+        <h3>Kamusi ya Istilahi</h3>
+        <p>Fahamu maana ya maneno muhimu ya kiteolojia na kateketiki.</p>
+        <a href="https://en.wikipedia.org/wiki/Glossary_of_the_Catholic_Church" target="_blank">
+            Angalia Kamusi
+        </a>
+          </div>
+
+
+
+   <div class="resource-category">
+    <img src="image/open-book.png" alt="Reading List Icon">
+    <h3>Orodha ya Vitabu</h3>
+    <p>Chagua kitabu ili kujifunza zaidi kuhusu imani na teolojia ya Kikristo.</p>
+    <label for="bookSelect">Chagua Kitabu:</label>
+    <select id="bookSelect" onchange="showBookModal()">
+      <option value="">-- Tafadhali Chagua / Please Select --</option>
+      <option value="biblia">Biblia Takatifu</option>
+      <option value="katekisimu">Katekisimu ya Kanisa Katoliki</option>
+      <option value="maisha">Maisha ya Mtakatifu Augustino</option>
+      <option value="imitation">Imitation of Christ</option>
+      <option value="kirisho">Utangulizi wa Maisha ya Kiroho</option>
+      <option value="evangelii">Evangelii Gaudium</option>
+      <option value="compendium">Compendium of the Catechism</option>
+      <option value="theology">Theology of the Body</option>
+      <option value="vatican">Documents of Vatican II</option>
+    </select>
+
+<!-- Modal Popup -->
+<div id="bookModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h3 id="bookTitle"></h3>
+    <p id="bookDescription"></p>
+    <button id="openBookBtn" onclick="openBookLink()">Fungua Kitabu</button>
+  </div>
+</div>
+
+<style>
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  overflow-y: auto;
+}
+
+.modal-content {
+  background: white;
+  margin: 10% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 10px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 28px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#openBookBtn {
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 300px;
+}
+
+#openBookBtn:hover {
+  background: #0056b3;
+}
+
+/* Mobile adjustments */
+@media (max-width: 600px) {
+  .modal-content {
+    margin: 70% 1%;
+    width: 90%;
+    padding: 15px;
+  }
+
+  #openBookBtn {
+    font-size: 18px;
+    padding: 14px;
+  }
+
+  #bookTitle {
+    font-size: 20px;
+  }
+
+  #bookDescription {
+    font-size: 16px;
+  }
+}
+</style>
+
+
+<script>
+const books = {
+  biblia: {
+    title: "Biblia Takatifu",
+    description: "Hii ni nakala ya Biblia Takatifu kwa kusoma na kutafakari.",
+    link: "https://www.bible.com/sw"
+  },
+  katekisimu: {
+    title: "Katekisimu ya Kanisa Katoliki",
+    description: "Maelezo ya mafundisho ya Kanisa Katoliki.",
+    link: "https://www.vatican.va/archive/ENG0015/_INDEX.HTM"
+  },
+  maisha: {
+    title: "Maisha ya Mtakatifu Augustino",
+    description: "Maisha na mafundisho ya Mt. Augustino.",
+    link: "https://www.newadvent.org/fathers/1101.htm"
+  },
+  imitation: {
+    title: "Imitation of Christ",
+    description: "Kitabu cha kiroho cha kufuata maisha ya Kristo.",
+    link: "https://www.ccel.org/ccel/kempis/imitation.html"
+  },
+  kirisho: {
+    title: "Utangulizi wa Maisha ya Kiroho",
+    description: "Miongozo ya maisha ya kiroho ya Kikristo.",
+    link: "https://www.ccel.org/ccel/desales/devout_life.html"
+  },
+  evangelii: {
+    title: "Evangelii Gaudium",
+    description: "Waraka wa Papa Francisco kuhusu furaha ya Injili.",
+    link: "https://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20131124_evangelii-gaudium.html"
+  },
+  compendium: {
+    title: "Compendium of the Catechism",
+    description: "Muhtasari wa Katekisimu ya Kanisa Katoliki.",
+    link: "https://www.vatican.va/archive/compendium_ccc/documents/archive_2005_compendium-ccc_en.html"
+  },
+  theology: {
+    title: "Theology of the Body",
+    description: "Mafundisho ya Mt. Yohane Paulo II juu ya mwili na ndoa.",
+    link: "https://www.ewtn.com/catholicism/library/theology-of-the-body-9343"
+  },
+  vatican: {
+    title: "Documents of Vatican II",
+    description: "Nyaraka muhimu kutoka Mtaguso wa Pili wa Vatikano.",
+    link: "https://www.vatican.va/archive/hist_councils/ii_vatican_council/index.htm"
+  }
+};
+
+let currentBookLink = "#";
+
+function showBookModal() {
+  const selected = document.getElementById("bookSelect").value;
+  const modal = document.getElementById("bookModal");
+
+  if (selected && books[selected]) {
+    const book = books[selected];
+    document.getElementById("bookTitle").textContent = book.title;
+    document.getElementById("bookDescription").textContent = book.description;
+    currentBookLink = book.link;
+    modal.style.display = "block";
+  }
+}
+
+function openBookLink() {
+  if (currentBookLink && currentBookLink !== "#") {
+    window.open(currentBookLink, "_blank");
+  }
+}
+
+function closeModal() {
+  document.getElementById("bookModal").style.display = "none";
+  currentBookLink = "#";
+}
+
+window.onclick = function(event) {
+  const modal = document.getElementById("bookModal");
+  if (event.target === modal) {
+    closeModal();
+  }
+};
+</script>
+
+
+
+</section>
+
+
+    <section id="about" class="container">
+    <h2>Kuhusu Sisi</h2>
+    <div class="about-content">
+        <p class="lead">Chuo cha Katekesi cha Mt. Fransisko Xsavier UDOM  ni taasisi inayotoa mafunzo ya katekesi kwa wote wanaotaka kuimarisha imani yao na kuwa walimu bora wa dini.</p>
+
+        <div class="student-images">
+            <img src="image/kusoma pamoja (3).jpeg" alt="Students Learning Together">
+            <img src="image/kusoma pamoja (14).jpeg" alt="Students in a Class">
+            <img src="image/kusoma pamoja (5).jpeg" alt="Students Studying">
+            <img src="image/kusoma pamoja (17).jpeg" alt="Students Group Photo">
+            <img src="image/kusoma pamoja (1).jpeg" alt="Students in Discussion">
+            <img src="image/kusoma pamoja (2).jpeg" alt="Students Outdoor Activity">
+            <img src="image/kusoma pamoja (16).jpeg" alt="Students with Instructor">
+            <img src="image/kusoma pamoja (21).jpeg" alt="Students in Prayer">
+            <img src="image/kusoma pamoja (11).jpeg" alt="Students Presentation">
+            <img src="image/kusoma pamoja (25).jpeg" alt="Students Volunteering">
+            <img src="image/kusoma pamoja (7).jpeg" alt="Students Presentation">
+            <img src="image/kusoma pamoja (24).jpeg" alt="Students Volunteering">
+            <img src="image/katekista.jpeg" alt="Students Volunteering">
+            <img src="image/wakongwe.jpeg" alt="Students Presentation">
+            <img src="image/image1.jpeg" alt="Students Volunteering">
+            <img src="image/kusoma pamoja (13).jpeg" alt="Students Volunteering">
+            <img src="image/kusoma pamoja (10).jpeg" alt="Students Volunteering">
+            <img src="image/makatekista irene.jpeg" alt="Students Volunteering">
+            <img src="image/kusoma pamoja (20).jpeg" alt="Students Volunteering">
+            <img src="image/father.jpg" alt="Students Volunteering">
+        </div>
+
+        <h3>Mahali</h3>
+        <p>Chuo chetu kinapatikana ndani ya mazingira ya Chuo Kikuu cha Dodoma, eneo linalotoa mazingira mazuri ya kujifunza na kukua kiroho.</p>
+
+        <h3>Vigezo vya Kujiunga</h3>
+        <p>Tunawakaribisha wanafunzi wote ambao wamepokea Sakramenti za Kipaimara, Komunio Takatifu, na Ubatizo. Nia ya kujifunza na kujitolea katika huduma ya katekesi ndio msingi mkuu.</p>
+
+        <h3>Ada ya Mafunzo</h3>
+        <p>Tunafurahi kuwajulisha kuwa kozi zetu zote zinatolewa **bure**. Lengo letu ni kuhakikisha kuwa elimu ya imani inawafikia wengi iwezekanavyo.</p>
+
+        <h3>Uongozi wa Chuo</h3>
+        <p>Mkuu wa Chuo chetu ni Paroko Msaidizi <strong> Padri Wenceslaus Rwakahaya</strong>, kiongozi mwenye uzoefu na kujitolea katika masuala ya kiroho na elimu.</p>
+
+        <h3>Dira Yetu</h3>
+        <p>Tunatamani kuwa kituo kikuu cha mafunzo ya katekesi katika kanda yetu, tukitoa elimu bora itakayowajenga viongozi wa imani wenye uwezo wa kueneza Injili kwa nguvu na upendo.</p>
+
+        <h3>Malengo Yetu</h3>
+        <ul>
+            <li>Kutoa mafunzo ya kina na yanayolingana na mahitaji ya jamii yetu.</li>
+            <li>Kuandaa walimu wa katekesi wenye ujuzi, imani thabiti, na ari ya kufundisha.</li>
+            <li>Kushirikiana na parokia na taasisi zingine za kidini kuimarisha elimu ya imani.</li>
+            <li>Kukuza mazingira ya kujifunza yanayounga mkono ukuaji wa kiroho na kitaaluma.</li>
+        </ul>
+
+        <h3>Karibu Sana</h3>
+        <p>Tunakukaribisha ujiunge nasi katika Chuo Kikuu cha Katekesi cha Dodoma na kuwa sehemu ya safari hii ya kujifunza na kukua katika imani.</p>
+    </div>
+</section>
+
+
+    <section id="contact" class="container">
+      <h2>Wasiliana Nasi</h2>
+      <div class="contact-wrapper">
+       <div class="contact-info">
+            <h3>Taarifa za Mawasiliano </h3>
+            <p><i class="fas fa-map-marker-alt"></i> Chuo cha katekesi Mt. Fransisko Xsavier Dodoma,
+                <br>S.L.P. [sanduku la posta],
+                <br>Dodoma, Tanzania</p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:[Your Email Address]">[barua pepe]</a></p>
+            <p><i class="fas fa-phone"></i> [namba ya simu]</p>
+            <p><i class="fas fa-clock"></i> Masa ya Kazi: Jumatatu - Ijumaa</p>
+            <div class="social-media">
+                <h3>Tufuate</h3>
+                <a href="[Your Facebook Link]" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="[Your Twitter Link]" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+        </div>
+
+<div class="contact-form" style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ccc; border-radius: 10px; background-color: #f9f9f9;">
+  
+<div class="contact-form">
+  <h3>Tutumie Ujumbe</h3>
+<!-- Contact Form -->
+<form action="https://formsubmit.co/davidcasto9600@gmail.com" method="POST">
+  <!-- Disable CAPTCHA -->
+  <input type="hidden" name="_captcha" value="false">
+
+  <!-- Redirect after successful submit -->
+   <!--if it is online-->
+   <!--<input type="hidden" name="_next" value="https://catecheticaludom.ac.tz/asante.html">
+-->
+  <input type="hidden" name="_next" value="asante.html">
+
+  <input type="hidden" name="_next" value="http://127.0.0.1:5500/asante.html">
+
+
+  <!-- Name -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="name">Jina Lako:</label><br>
+    <input type="text" id="name" name="name" required style="width: 100%; padding: 10px;">
+  </div>
+
+  <!-- Email -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="email">Barua Pepe Yako:</label><br>
+    <input type="email" id="email" name="email" required style="width: 100%; padding: 10px;">
+  </div>
+
+  <!-- Subject -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="subject">Mada:</label><br>
+    <input type="text" id="subject" name="subject" style="width: 100%; padding: 10px;">
+  </div>
+
+  <!-- Message -->
+  <div class="form-group" style="margin-bottom: 15px;">
+    <label for="message">Ujumbe:</label><br>
+    <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 10px;"></textarea>
+  </div>
+
+  <!-- Submit Button -->
+  <button type="submit" style="background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px;">
+    Tuma Ujumbe
+  </button>
+</form>
+
+
+
+      </div>
+    </section>
+  </main>
+
+<section class="leaders-section">
+  <div class="container leaders-container">
+    <div class="leader">
+      <img src="image/criso.jpg" alt="Padri Chrisogon Vulstan" class="leader-image" />
+      <p class="leader-name">Padri Chrisogon Vulstan</p>
+      <p class="leader-role">Paroko Mkuu</p>
+      <p class="leader-description">
+        Padri John ni Paroko Mkuu wa Parokia ya Mt. Fransisco Ksavery UDOM, akiongoza huduma zote za kanisa, kuendesha misa, na kuhudumia jamii ya waumini.
+      </p>
+    </div>
+    <div class="leader">
+      <img src="image/mgashi.jpg" alt="Padri Peter Mushi" class="leader-image" />
+      <p class="leader-name">Padri Wenceslaus Rwakahaya</p>
+      <p class="leader-role">Paroko Msaidizi</p>
+      <p class="leader-description">
+        Padri Wenceslaus Rwakahaya ni Paroko Msaidizi, akisaidia Paroko Mkuu katika kuendesha shughuli za kanisa na pia ndio mkuu wa chuo cha katekesi.
+        
+      </p>
+    </div>
+  </div>
+</section>
+
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Chuo cha Katekesi Mt. Fransisco Ksavery Dodoma. Haki zote zimehifadhiwa.</p>
+    </div>
+  </footer>
+
+  <script src="courses-data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
