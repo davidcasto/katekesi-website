@@ -433,33 +433,89 @@ window.onclick = function(event) {
 </section>
 
 
+
     <section id="about" class="container">
     <h2>Kuhusu Sisi</h2>
     <div class="about-content">
         <p class="lead">Chuo cha Katekesi cha Mt. Fransisko Xsavier UDOM  ni taasisi inayotoa mafunzo ya katekesi kwa wote wanaotaka kuimarisha imani yao na kuwa walimu bora wa dini.</p>
 
-        <div class="student-images">
-            <img src="image/kusoma pamoja (3).jpeg" alt="Students Learning Together">
-            <img src="image/kusoma pamoja (14).jpeg" alt="Students in a Class">
-            <img src="image/kusoma pamoja (5).jpeg" alt="Students Studying">
-            <img src="image/kusoma pamoja (17).jpeg" alt="Students Group Photo">
-            <img src="image/kusoma pamoja (1).jpeg" alt="Students in Discussion">
-            <img src="image/kusoma pamoja (2).jpeg" alt="Students Outdoor Activity">
-            <img src="image/kusoma pamoja (16).jpeg" alt="Students with Instructor">
-            <img src="image/kusoma pamoja (21).jpeg" alt="Students in Prayer">
-            <img src="image/kusoma pamoja (11).jpeg" alt="Students Presentation">
-            <img src="image/kusoma pamoja (25).jpeg" alt="Students Volunteering">
-            <img src="image/kusoma pamoja (7).jpeg" alt="Students Presentation">
-            <img src="image/kusoma pamoja (24).jpeg" alt="Students Volunteering">
-            <img src="image/katekista.jpeg" alt="Students Volunteering">
-            <img src="image/wakongwe.jpeg" alt="Students Presentation">
-            <img src="image/image1.jpeg" alt="Students Volunteering">
-            <img src="image/kusoma pamoja (13).jpeg" alt="Students Volunteering">
-            <img src="image/kusoma pamoja (10).jpeg" alt="Students Volunteering">
-            <img src="image/makatekista irene.jpeg" alt="Students Volunteering">
-            <img src="image/kusoma pamoja (20).jpeg" alt="Students Volunteering">
-            <img src="image/father.jpg" alt="Students Volunteering">
-        </div>
+    <style>
+  .student-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .student-images img {
+    width: 200px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .toggle-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+  }
+
+  .toggle-btn:hover {
+    background-color: #0056b3;
+  }
+</style>
+
+<div class="student-images" id="studentImageContainer">
+  <!-- First 8 images (always visible) -->
+  <img src="image/kusoma pamoja (3).jpeg" alt="Students Learning Together">
+  <img src="image/kusoma pamoja (14).jpeg" alt="Students in a Class">
+  <img src="image/kusoma pamoja (5).jpeg" alt="Students Studying">
+  <img src="image/kusoma pamoja (17).jpeg" alt="Students Group Photo">
+  <img src="image/kusoma pamoja (1).jpeg" alt="Students in Discussion">
+  <img src="image/kusoma pamoja (2).jpeg" alt="Students Outdoor Activity">
+  <img src="image/kusoma pamoja (16).jpeg" alt="Students with Instructor">
+  <img src="image/kusoma pamoja (21).jpeg" alt="Students in Prayer">
+
+  <!-- Hidden initially -->
+  <img class="extra hidden" src="image/kusoma pamoja (11).jpeg" alt="Students Presentation">
+  <img class="extra hidden" src="image/kusoma pamoja (25).jpeg" alt="Students Volunteering">
+  <img class="extra hidden" src="image/kusoma pamoja (7).jpeg" alt="Students Presentation">
+  <img class="extra hidden" src="image/kusoma pamoja (24).jpeg" alt="Students Volunteering">
+  <img class="extra hidden" src="image/katekista.jpeg" alt="Students Volunteering">
+  <img class="extra hidden" src="image/wakongwe.jpeg" alt="Students Presentation">
+  <img class="extra hidden" src="image/image1.jpeg" alt="Students Volunteering">
+  <img class="extra hidden" src="image/kusoma pamoja (13).jpeg" alt="Students Volunteering">
+  <img class="extra hidden" src="image/kusoma pamoja (10).jpeg" alt="Students Volunteering">
+  <img class="extra hidden" src="image/makatekista irene.jpeg" alt="Students Volunteering">
+  <img class="extra hidden" src="image/kusoma pamoja (20).jpeg" alt="Students Volunteering">
+  <img class="extra hidden" src="image/father.jpg" alt="Students Volunteering">
+</div>
+
+<!-- Toggle Button -->
+<button class="toggle-btn" onclick="toggleImages()" id="toggleBtn">Tazama Zote</button>
+
+<script>
+  function toggleImages() {
+    const extras = document.querySelectorAll('.extra');
+    const btn = document.getElementById('toggleBtn');
+    const isHidden = extras[0].classList.contains('hidden');
+
+    extras.forEach(img => {
+      img.classList.toggle('hidden');
+    });
+
+    btn.textContent = isHidden ? "Ficha Zingine" : "Tazama Zote";
+  }
+</script>
+
 
         <h3>Mahali</h3>
         <p>Chuo chetu kinapatikana ndani ya mazingira ya Chuo Kikuu cha Dodoma, eneo linalotoa mazingira mazuri ya kujifunza na kukua kiroho.</p>
@@ -488,7 +544,6 @@ window.onclick = function(event) {
         <p>Tunakukaribisha ujiunge nasi katika Chuo Kikuu cha Katekesi cha Dodoma na kuwa sehemu ya safari hii ya kujifunza na kukua katika imani.</p>
     </div>
 </section>
-
 
     <section id="contact" class="container">
       <h2>Wasiliana Nasi</h2>
